@@ -1,0 +1,222 @@
+.ioc-table-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.ioc-table-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
+
+.ioc-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ioc-filters input,
+.ioc-filters select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.45rem 0.65rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.ioc-filters input::placeholder {
+  color: var(--text-secondary);
+}
+
+.ioc-filters input:focus,
+.ioc-filters select:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.ioc-filters input {
+  flex: 1;
+  min-width: 120px;
+}
+
+.ioc-filters select option {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.table-wrap {
+  flex: 1;
+  overflow: auto;
+}
+
+.ioc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.ioc-table th {
+  position: sticky;
+  top: 0;
+  background: var(--grid);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  text-align: left;
+  padding: 0.65rem 0.5rem;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+}
+
+.ioc-table td {
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--grid);
+  color: var(--text-primary);
+  transition: background var(--transition), border-left var(--transition);
+}
+
+.ioc-table tbody tr:not(.chart-row).row-even {
+  background: var(--bg);
+}
+
+.ioc-table tbody tr:not(.chart-row).row-odd {
+  background: var(--surface);
+}
+
+.ioc-table tbody tr:not(.chart-row) {
+  cursor: pointer;
+}
+
+.ioc-table tbody tr:not(.chart-row):hover {
+  background: var(--grid) !important;
+  border-left: 2px solid var(--cyan);
+}
+
+.ioc-table tbody tr:not(.chart-row):hover td:first-child {
+  padding-left: calc(0.5rem - 2px);
+}
+
+.expanded-row {
+  background: var(--grid) !important;
+  border-left: 2px solid var(--cyan);
+}
+
+.row-slide-in {
+  animation: slideInLeft 0.3s ease forwards;
+}
+
+.value-cell {
+  max-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.value-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--cyan);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.typing-cursor {
+  color: var(--cyan);
+  animation: blink 1s step-end infinite;
+  flex-shrink: 0;
+  margin-left: 1px;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid;
+}
+
+.chart-row td {
+  padding: 0.5rem 1rem 1rem;
+  background: var(--bg);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.pagination button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.loading, .empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.error-banner {
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 45, 85, 0.1);
+  border: 1px solid var(--critical);
+  color: var(--critical);
+  font-size: 0.85rem;
+}
+
+.country-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.country-flag {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid var(--grid);
+}

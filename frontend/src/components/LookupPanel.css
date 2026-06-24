@@ -1,0 +1,213 @@
+.lookup-trigger {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1000;
+  background: var(--cyan);
+  color: #0a0e1a;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.35);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.lookup-trigger:hover {
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.55);
+}
+
+.lookup-trigger-text {
+  position: relative;
+  z-index: 1;
+}
+
+.lookup-scan-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.lookup-trigger:hover .lookup-scan-line {
+  animation: scanSweep 0.6s ease;
+}
+
+.lookup-panel {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 4.5rem;
+  z-index: 1000;
+  width: 360px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.lookup-panel h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
+
+.lookup-panel form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lookup-panel input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.lookup-panel input::placeholder {
+  color: var(--text-secondary);
+}
+
+.lookup-panel input:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.lookup-panel button[type="submit"] {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  transition: background var(--transition), color var(--transition);
+}
+
+.lookup-panel button[type="submit"]:hover:not(:disabled) {
+  background: var(--cyan);
+  color: #0a0e1a;
+}
+
+.lookup-panel button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lookup-error {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(255, 45, 85, 0.1);
+  border: 1px solid var(--critical);
+  color: var(--critical);
+  font-size: 0.85rem;
+}
+
+.lookup-result {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border: 1px solid;
+  border-radius: 2px;
+  transition: box-shadow var(--transition);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.source-badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid;
+}
+
+.source-badge[data-source="cache"] {
+  border-color: var(--purple);
+  color: var(--purple);
+  background: rgba(123, 47, 255, 0.1);
+}
+
+.source-badge[data-source="live"] {
+  border-color: var(--low);
+  color: var(--low);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.lookup-result .severity-badge {
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  border: 1px solid;
+  letter-spacing: 0.06em;
+}
+
+.result-value {
+  font-size: 0.9rem;
+  color: var(--cyan);
+  word-break: break-all;
+  margin: 0 0 0.75rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.result-grid label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.result-grid span {
+  color: var(--text-primary);
+}
+
+.result-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.result-tags .tag {
+  background: var(--grid);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.result-meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}

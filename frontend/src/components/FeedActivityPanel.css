@@ -1,0 +1,137 @@
+.feed-activity-panel {
+  margin: 0 1.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.feed-activity-panel .section-title {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
+
+.feed-error {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid var(--critical);
+  color: var(--critical);
+  background: rgba(255, 45, 85, 0.1);
+  font-size: 0.85rem;
+}
+
+.feed-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feed-row {
+  display: grid;
+  grid-template-columns: 120px 140px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--grid);
+  transition: border-color var(--transition);
+}
+
+.feed-row:hover {
+  border-color: var(--border);
+}
+
+.feed-name {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.feed-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.active {
+  background: var(--low);
+  box-shadow: 0 0 8px var(--low);
+}
+
+.status-dot.idle {
+  background: var(--text-secondary);
+}
+
+.status-text {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.feed-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--grid);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.feed-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  flex-wrap: wrap;
+}
+
+.feed-run-btn {
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.feed-run-btn:hover:not(:disabled) {
+  background: var(--cyan);
+  color: #0a0e1a;
+}
+
+.feed-run-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.feed-empty {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .feed-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
