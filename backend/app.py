@@ -23,7 +23,11 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    CORS(app, origins=[Config.CORS_ORIGIN])
+    cors_origins = [
+        Config.CORS_ORIGIN,
+        r"https://.*\.onrender\.com",
+    ]
+    CORS(app, origins=cors_origins)
 
     @app.route("/")
     def health():

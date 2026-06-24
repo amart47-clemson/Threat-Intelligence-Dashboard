@@ -28,10 +28,7 @@ services:
     routes:
       - type: rewrite
         source: /api/*
-        destination: https://threat-intel-api.onrender.com/api/*
-    envVars:
-      - key: VITE_API_URL
-        value: https://threat-intel-api.onrender.com
+        destination: https://threat-intel-api-8pvm.onrender.com/api/*
 
 databases:
   - name: threatintel-db
