@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 from config import Config
@@ -24,6 +24,10 @@ def create_app():
     app.config.from_object(Config)
 
     CORS(app, origins=[Config.CORS_ORIGIN])
+
+    @app.route("/")
+    def health():
+        return jsonify({"status": "ok", "service": "threat-intel-api"})
 
     db.init_app(app)
     app.register_blueprint(iocs_bp)
